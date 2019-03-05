@@ -31,12 +31,13 @@ export const postEventForm = values => {
       firstName,
       secondName
     };
-    return axios.post(`${apiEndpoint}/event`, event)
+    return axios.post(`${apiEndpoint}/events`, event)
       .then(() => {
         dispatch(postingSuccess());
       })
       .catch(err => {
-        dispatch(postingFailed(err));
+        if (err.status === 400) return dispatch(postingFailed('Bad request.'));
+        return dispatch(postingFailed('Something went wrong. Please try again later.'));
       });
   };
 };

@@ -20,6 +20,7 @@ describe('root reducer', () => {
     }))
       .toEqual({
         posting: false,
+        success: false,
         error: {
           isError: true,
           message: "Something went wrong"
@@ -31,6 +32,6 @@ describe('root reducer', () => {
     expect(rootReducer({}, {
       type: actionTypes.POSTING_SUCCESS
     }))
-      .toEqual({posting: false, success: true})
+      .toEqual({posting: false, success: true, error: { isError: false, message: '' }})
   });
 });

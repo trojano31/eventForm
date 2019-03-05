@@ -1,7 +1,6 @@
 import * as rootActions from "../actions/rootActions";
 import * as actionTypes from "../actions/actionTypes";
 
-
 describe('root actions', () => {
   it('should create postingForm action', () => {
     const expected = {

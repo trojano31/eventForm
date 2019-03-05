@@ -15,10 +15,10 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return { ...state, posting: true };
 
     case POSTING_FAILED:
-      return { ...state, posting: false, error: { isError: true, message: payload } };
+      return { ...state, posting: false, success: false, error: { isError: true, message: payload } };
 
     case POSTING_SUCCESS:
-      return { ...state, posting: false, success: true };
+      return { ...state, posting: false, success: true, error: { isError: false, message: '' } };
 
     default:
       return state;
