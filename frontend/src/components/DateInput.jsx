@@ -1,6 +1,8 @@
 import React from 'react';
 import DatePicker from 'react-date-picker';
 import { Form } from 'react-bootstrap';
+import { getUtcDate } from '../helpers';
+
 
 const DateInput = ({ input: { value, onChange }, label, withTime, meta: { touched, error } }) => (
   <Form.Group>
@@ -8,7 +10,7 @@ const DateInput = ({ input: { value, onChange }, label, withTime, meta: { touche
     <DatePicker
       onChange={onChange}
       time={withTime}
-      value={value ? new Date(value) : null}
+      value={value ? getUtcDate(value) : null}
       minDate={new Date(Date.now())}
       showLeadingZeros
     />
