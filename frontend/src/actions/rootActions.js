@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { apiEndpoint } from '../constants/settings';
+import { apiEndpoint } from '../../constants/settings';
 import { POSTING_FAILED, POSTING_FORM, POSTING_SUCCESS } from './actionTypes';
 
 export const postingForm = () => {
