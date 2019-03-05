@@ -30,11 +30,12 @@ const EventForm = ({ handleSubmit }) => (
     <Field
       name="date"
       component={DateInput}
+      withTime={false}
+      type="text"
       label="Date"
       placeholder="Select Date"
-      parse={String}
     />
-    <Button variant="primary" type="submit" className="mt-3">
+    <Button variant="primary" type="submit">
       Submit
     </Button>
   </Form>

@@ -1,17 +1,20 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
+import { Form } from 'react-bootstrap';
+import moment from 'moment';
 
-const DateInput = ({ input, placeholder, withTime, meta: { touched, error } }) => (
-  <div>
-    {console.log(input.value)}
+const DateInput = ({ input, label, placeholder, withTime, meta: { touched, error } }) => (
+  <Form.Group>
+    <Form.Label className="d-block">{label}</Form.Label>
     <DatePicker
-      {...input}
-      dateForm="MM DD YYYY"
+      onChange={input.onChange}
+      dateForm="DD/MM/YYYY"
       time={withTime}
-      selected={input.value ? new Date(input.value) : null}
+      value={!input.value ? null : moment(input.value).format('DD/MM/YYYY')}
+      selected={!input.value ? null : new Date(input.value)}
       placeholderText={placeholder}
     />
     {touched && error && <span>{error}</span>}
-  </div>
+  </Form.Group>
 );
 export default DateInput;
