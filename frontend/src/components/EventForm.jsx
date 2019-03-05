@@ -1,37 +1,40 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Button, Form } from 'react-bootstrap';
-import Input from './Input';
+import TextInput from './TextInput';
+import DateInput from './DateInput';
 
-const EventForm = () => (
-  <Form>
+const EventForm = ({ handleSubmit }) => (
+  <Form onSubmit={handleSubmit}>
     <Field
       name="firstName"
-      component={Input}
+      component={TextInput}
       type="text"
       label="First Name"
       placeholder="First Name"
     />
     <Field
       name="secondName"
-      component={Input}
+      component={TextInput}
       type="text"
       label="Second Name"
       placeholder="Second Name"
     />
     <Field
       name="email"
-      component={Input}
+      component={TextInput}
       type="email"
       label="Email"
       placeholder="Email"
     />
     <Field
-      name="comment"
-      component="input"
-      label="Komentarz"
+      name="date"
+      component={DateInput}
+      label="Date"
+      placeholder="Select Date"
+      parse={String}
     />
-    <Button variant="primary" type="submit">
+    <Button variant="primary" type="submit" className="mt-3">
       Submit
     </Button>
   </Form>
