@@ -1,6 +1,6 @@
 import { POSTING_FAILED, POSTING_FORM, POSTING_SUCCESS } from '../actions/actionTypes';
 
-const initialState = {
+export const initialState = {
   posting: false,
   success: false,
   error: {
