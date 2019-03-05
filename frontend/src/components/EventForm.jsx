@@ -5,7 +5,7 @@ import TextInput from './TextInput';
 import DateInput from './DateInput';
 
 const EventForm = ({ handleSubmit }) => (
-  <Form onSubmit={handleSubmit}>
+  <Form onSubmit={handleSubmit} className="event-form">
     <Field
       name="firstName"
       component={TextInput}

@@ -9,7 +9,7 @@ const EventFormContainer = ({ postEventForm }) => (
 );
 
 const mapDispatchToProps = dispatch => {
-  bindActionCreators({
+  return bindActionCreators({
     postEventForm
   }, dispatch);
 };
