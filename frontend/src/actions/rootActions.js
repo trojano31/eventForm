@@ -1,8 +1,6 @@
+import axios from 'axios';
+import { apiEndpoint } from '../constants/settings';
 import { POSTING_FAILED, POSTING_FORM, POSTING_SUCCESS } from './actionTypes';
-
-export const postEventForm = values => {
-  console.log(values);
-};
 
 export const postingForm = () => {
   return {
@@ -20,5 +18,25 @@ export const postingFailed = err => {
   return {
     type: POSTING_FAILED,
     payload: err
+  };
+};
+
+export const postEventForm = values => {
+  return dispatch => {
+    dispatch(postingForm());
+    const { date, email, firstName, secondName } = values;
+    const event = {
+      date: date.toISOString(),
+      email,
+      firstName,
+      secondName
+    };
+    return axios.post(`${apiEndpoint}/event`, event)
+      .then(() => {
+        dispatch(postingSuccess());
+      })
+      .catch(err => {
+        dispatch(postingFailed(err));
+      });
   };
 };

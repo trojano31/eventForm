@@ -8,14 +8,14 @@ describe('root actions', () => {
       type: actionTypes.POSTING_FORM
     };
     expect(rootActions.postingForm()).toEqual(expected);
-  })
+  });
 
   it('should create postingFailed action', () => {
     const expected = {
       type: actionTypes.POSTING_SUCCESS
     };
     expect(rootActions.postingSuccess()).toEqual(expected);
-  })
+  });
 
   it('should create postingSuccess action', () => {
     const expected = {
@@ -24,4 +24,4 @@ describe('root actions', () => {
     };
     expect(rootActions.postingFailed("Something went wrong")).toEqual(expected);
   })
-})
+});
