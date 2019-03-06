@@ -15,7 +15,7 @@ const DateInput = ({ input: { value, onChange }, label, withTime, meta: { touche
       showLeadingZeros
       className={touched && error ? 'invalid-date' : ''}
     />
-    {touched && error && <Form.Text className="text-muted">{error}</Form.Text>}
+    {touched && error && <Form.Text className="invalid-text">{error}</Form.Text>}
   </Form.Group>
 );
 export default DateInput;

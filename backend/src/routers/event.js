@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
       res.status(200).send(events);
     })
   } catch (e) {
-    res.status(500).send()
+    res.status(500).send(e)
   }
 });
 
