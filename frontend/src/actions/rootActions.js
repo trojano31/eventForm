@@ -25,7 +25,7 @@ export const postingFailed = err => {
 export const postEventForm = values => {
   return dispatch => {
     dispatch(postingForm());
-    const { date, email, firstName, lastName } = values;
+    const { date, firstName, email, lastName } = values;
     const event = {
       date: date.toISOString(),
       email,
@@ -39,7 +39,7 @@ export const postEventForm = values => {
       })
       .catch(err => {
         if (err.status === 400) return dispatch(postingFailed('Bad request.'));
-        return dispatch(postingFailed('Something went wrong. Please try again later.'));
+        return dispatch(postingFailed(err.response.data.message));
       });
   };
 };

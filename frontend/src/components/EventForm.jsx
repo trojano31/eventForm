@@ -8,9 +8,6 @@ import { alphaNumeric, email, minLength, required } from '../helpers/validator';
 
 const EventForm = ({ handleSubmit, isError, errorMessage, success }) => (
   <Form onSubmit={handleSubmit} className="event-form">
-    {console.log(isError)}
-    {console.log(errorMessage)}
-    {console.log(success)}
     <Field
       name="firstName"
       component={TextInput}
