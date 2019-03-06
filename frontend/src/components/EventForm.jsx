@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Alert, Button, Form } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 import TextInput from './TextInput';
 import DateInput from './DateInput';
 import { alphaNumeric, email, minLength, required } from '../helpers/validator';
@@ -51,6 +52,13 @@ const EventForm = ({ handleSubmit, isError, errorMessage, success }) => (
     {success ? <Alert variant="success" className="mt-3">Your application has been sent. We will get back to you shortly</Alert> : ''}
   </Form>
 );
+
+EventForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  success: PropTypes.bool.isRequired,
+  isError: PropTypes.bool.isRequired,
+  errorMessage: PropTypes.string.isRequired
+};
 
 export default reduxForm({
   form: 'eventForm'
