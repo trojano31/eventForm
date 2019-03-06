@@ -37,9 +37,6 @@ export const postEventForm = values => {
         dispatch(postingSuccess());
         dispatch(reset('eventForm'));
       })
-      .catch(err => {
-        if (err.status === 400) return dispatch(postingFailed('Bad request.'));
-        return dispatch(postingFailed(err.response.data.message));
-      });
+      .catch(err => err.response.data.message ? dispatch(postingFailed(err.response.data.message)) : dispatch(postingFailed('Bad request.')));
   };
 };

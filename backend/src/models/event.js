@@ -5,7 +5,6 @@ const eventSchema = new mongoose.Schema({
   firstName: {
     type: String,
     required: true,
-    minLength: 2,
     validate(value) {
       if (!validator.isAlphanumeric(value)) {
         throw new Error('First Name must be alphanumeric')
@@ -15,7 +14,6 @@ const eventSchema = new mongoose.Schema({
   lastName: {
     type: String,
     required: true,
-    minLength: 2,
     validate(value) {
       if (!validator.isAlphanumeric(value)) {
         throw new Error('Second Name must be alphanumeric')

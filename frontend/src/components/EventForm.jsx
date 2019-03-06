@@ -4,7 +4,7 @@ import { Alert, Button, Form } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import TextInput from './TextInput';
 import DateInput from './DateInput';
-import { alphaNumeric, email, minLength, required } from '../helpers/validator';
+import { alpha, email, required } from '../helpers/validator';
 
 const EventForm = ({ handleSubmit, isError, errorMessage, success }) => (
   <Form onSubmit={handleSubmit} className="event-form">
@@ -14,7 +14,7 @@ const EventForm = ({ handleSubmit, isError, errorMessage, success }) => (
       type="text"
       label="First Name"
       placeholder="First Name"
-      validate={[required, alphaNumeric, minLength(2)]}
+      validate={[required, alpha]}
     />
     <Field
       name="lastName"
@@ -22,7 +22,7 @@ const EventForm = ({ handleSubmit, isError, errorMessage, success }) => (
       type="text"
       label="Last Name"
       placeholder="Last Name"
-      validate={[required, alphaNumeric, minLength(2)]}
+      validate={[required, alpha]}
 
     />
     <Field
