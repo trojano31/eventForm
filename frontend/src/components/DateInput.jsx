@@ -13,8 +13,9 @@ const DateInput = ({ input: { value, onChange }, label, withTime, meta: { touche
       value={value ? getUtcDate(value) : null}
       minDate={new Date(Date.now())}
       showLeadingZeros
+      className={touched && error ? 'invalid-date' : ''}
     />
-    {touched && error && <span>{error}</span>}
+    {touched && error && <Form.Text className="invalid-text">{error}</Form.Text>}
   </Form.Group>
 );
 export default DateInput;

@@ -10,8 +10,9 @@ const TextInput = ({ input, label, type, placeholder, meta: { touched, error } }
       placeholder={placeholder}
       value={input.value}
       onChange={input.onChange}
+      className={touched && error ? 'invalid-input' : ''}
     />
-    {touched && error && <Form.Text className="text-muted">{error}</Form.Text>}
+    {touched && error && <Form.Text className="invalid-text">{error}</Form.Text>}
   </Form.Group>
 );
 

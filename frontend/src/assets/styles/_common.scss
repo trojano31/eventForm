@@ -3,3 +3,18 @@
   padding: 15px;
   border-radius: 15px;
 }
+
+.invalid {
+
+  &-input {
+    border-color: #ff6868;
+  }
+
+  &-text {
+    color: #ff6868;
+  }
+
+  &-date {
+    border: 1px solid #ff6868;
+  }
+}
