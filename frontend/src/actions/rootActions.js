@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { reset } from 'redux-form';
 import { apiEndpoint } from '../constants/settings';
 import { POSTING_FAILED, POSTING_FORM, POSTING_SUCCESS } from './actionTypes';
 
@@ -34,6 +35,7 @@ export const postEventForm = values => {
     return axios.post(`${apiEndpoint}/events`, event)
       .then(() => {
         dispatch(postingSuccess());
+        dispatch(reset('eventForm'));
       })
       .catch(err => {
         if (err.status === 400) return dispatch(postingFailed('Bad request.'));

@@ -1,12 +1,15 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Button, Form } from 'react-bootstrap';
+import { Alert, Button, Form } from 'react-bootstrap';
 import TextInput from './TextInput';
 import DateInput from './DateInput';
 import { alphaNumeric, email, minLength, required } from '../helpers/validator';
 
-const EventForm = ({ handleSubmit }) => (
+const EventForm = ({ handleSubmit, isError, errorMessage, success }) => (
   <Form onSubmit={handleSubmit} className="event-form">
+    {console.log(isError)}
+    {console.log(errorMessage)}
+    {console.log(success)}
     <Field
       name="firstName"
       component={TextInput}
@@ -44,6 +47,8 @@ const EventForm = ({ handleSubmit }) => (
     <Button variant="primary" type="submit">
       Submit
     </Button>
+    {isError ? <Alert variant="danger" className="mt-3">{errorMessage}</Alert> : ''}
+    {success ? <Alert variant="success" className="mt-3">Your application has been sent. We will get back to you shortly</Alert> : ''}
   </Form>
 );
 
