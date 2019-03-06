@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "run-p install:frontend install:backend",
-    "install:frontend": "cd backend && npm install",
-    "install:backend": "cd frontend && npm install",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
     "start": "run-p start:frontend start:backend",
-    "start:frontend": "npm run start --prefix backend",
-    "start:backend": "npm run start --prefix frontend"
+    "start:backend": "npm run start --prefix backend",
+    "start:frontend": "npm run start --prefix frontend",
+    "test:backend": "npm run test --prefix backend",
+    "test:frontend": "npm run test --prefix frontend"
   },
   "repository": {
     "type": "git",
