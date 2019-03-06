@@ -14,6 +14,4 @@ app.use(bodyParser.json());
 
 app.use('/events/', eventRouter);
 
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`)
-});
+module.exports = app;

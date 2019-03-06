@@ -1,8 +1,8 @@
 import React from 'react';
 import DatePicker from 'react-date-picker';
+import PropTypes from 'prop-types';
 import { Form } from 'react-bootstrap';
 import { getUtcDate } from '../helpers';
-
 
 const DateInput = ({ input: { value, onChange }, label, withTime, meta: { touched, error } }) => (
   <Form.Group>
@@ -18,4 +18,9 @@ const DateInput = ({ input: { value, onChange }, label, withTime, meta: { touche
     {touched && error && <Form.Text className="invalid-text">{error}</Form.Text>}
   </Form.Group>
 );
+
+DateInput.propTypes = {
+  label: PropTypes.string.isRequired
+};
+
 export default DateInput;
