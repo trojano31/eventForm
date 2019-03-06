@@ -1,5 +1,5 @@
-import rootReducer, { initialState } from '../reducers/rootReducer';
-import * as actionTypes from '../actions/actionTypes';
+import rootReducer, { initialState } from '../src/reducers/rootReducer';
+import * as actionTypes from '../src/actions/actionTypes';
 
 describe('root reducer', () => {
   it('should return default state', () => {

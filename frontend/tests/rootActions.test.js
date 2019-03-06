@@ -1,5 +1,5 @@
-import * as rootActions from "../actions/rootActions";
-import * as actionTypes from "../actions/actionTypes";
+import * as rootActions from "../src/actions/rootActions";
+import * as actionTypes from "../src/actions/actionTypes";
 
 describe('root actions', () => {
   it('should create postingForm action', () => {
