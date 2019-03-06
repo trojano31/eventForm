@@ -25,12 +25,12 @@ export const postingFailed = err => {
 export const postEventForm = values => {
   return dispatch => {
     dispatch(postingForm());
-    const { date, email, firstName, secondName } = values;
+    const { date, email, firstName, lastName } = values;
     const event = {
       date: date.toISOString(),
       email,
       firstName,
-      secondName
+      lastName
     };
     return axios.post(`${apiEndpoint}/events`, event)
       .then(() => {

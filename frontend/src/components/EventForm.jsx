@@ -20,11 +20,11 @@ const EventForm = ({ handleSubmit, isError, errorMessage, success }) => (
       validate={[required, alphaNumeric, minLength(2)]}
     />
     <Field
-      name="secondName"
+      name="lastName"
       component={TextInput}
       type="text"
-      label="Second Name"
-      placeholder="Second Name"
+      label="Last Name"
+      placeholder="Last Name"
       validate={[required, alphaNumeric, minLength(2)]}
 
     />

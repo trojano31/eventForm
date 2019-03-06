@@ -12,7 +12,7 @@ const eventSchema = new mongoose.Schema({
       }
     }
   },
-  secondName: {
+  lastName: {
     type: String,
     required: true,
     minLength: 2,
