@@ -8,7 +8,7 @@
 - run `npm i` in root dir (it will install packages both for backend and frontend)
 - once done execute `npm run start` — it will run backend & frontend together
 
-Frontend will be available under: https://localhost:3000 while backend: https://localhost:5000.
+Frontend will be available under: http://localhost:3000 while backend: http://localhost:5000.
 
 ## Tests
 
