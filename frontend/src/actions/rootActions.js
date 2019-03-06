@@ -25,21 +25,18 @@ export const postingFailed = err => {
 export const postEventForm = values => {
   return dispatch => {
     dispatch(postingForm());
-    const { date, email, firstName, secondName } = values;
+    const { date, firstName, email, lastName } = values;
     const event = {
       date: date.toISOString(),
       email,
       firstName,
-      secondName
+      lastName
     };
     return axios.post(`${apiEndpoint}/events`, event)
       .then(() => {
         dispatch(postingSuccess());
         dispatch(reset('eventForm'));
       })
-      .catch(err => {
-        if (err.status === 400) return dispatch(postingFailed('Bad request.'));
-        return dispatch(postingFailed('Something went wrong. Please try again later.'));
-      });
+      .catch(err => err.response.data.message ? dispatch(postingFailed(err.response.data.message)) : dispatch(postingFailed('Bad request.')));
   };
 };

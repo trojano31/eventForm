@@ -6,12 +6,10 @@ const eventRouter = require('./routers/event');
 
 const app = express();
 
-const port = process.env.PORT;
-
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use('/events/', eventRouter);
+app.use('/events', eventRouter);
 
 module.exports = app;

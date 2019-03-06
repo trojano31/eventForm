@@ -4,28 +4,25 @@ import { Alert, Button, Form } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import TextInput from './TextInput';
 import DateInput from './DateInput';
-import { alphaNumeric, email, minLength, required } from '../helpers/validator';
+import { alpha, email, required } from '../helpers/validator';
 
 const EventForm = ({ handleSubmit, isError, errorMessage, success }) => (
   <Form onSubmit={handleSubmit} className="event-form">
-    {console.log(isError)}
-    {console.log(errorMessage)}
-    {console.log(success)}
     <Field
       name="firstName"
       component={TextInput}
       type="text"
       label="First Name"
       placeholder="First Name"
-      validate={[required, alphaNumeric, minLength(2)]}
+      validate={[required, alpha]}
     />
     <Field
-      name="secondName"
+      name="lastName"
       component={TextInput}
       type="text"
-      label="Second Name"
-      placeholder="Second Name"
-      validate={[required, alphaNumeric, minLength(2)]}
+      label="Last Name"
+      placeholder="Last Name"
+      validate={[required, alpha]}
 
     />
     <Field

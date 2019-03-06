@@ -10,10 +10,21 @@ test('Should register a new event application', async (done) => {
   await clearEvents();
   await request(app).post('/events').send({
     firstName: 'Patryk',
-    secondName: 'trojan',
+    lastName: 'trojan',
     email: 'pat@gmail.com',
     date: '2019-03-06T09:42:58.602Z!'
   }).expect(201);
+  done();
+});
+
+test('Should throw an error when creating an invalid new event application', async (done) => {
+  await clearEvents();
+  await request(app).post('/events').send({
+    firstName: 'Patryk',
+    lastName: 'trojan',
+    email: 'gmail.com',
+    date: '2019-03-06T09:42:58.602Z!'
+  }).expect(400);
   done();
 });
 
