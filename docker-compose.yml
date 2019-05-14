@@ -9,20 +9,26 @@ services:
 
   backend:
     container_name: backend
-    build: backend/
     image: node-docker
     environment:
       - PORT=5000
       - MONGODB_URL=mongodb://db:27017/event-form
-    ports:
-      - 5000:5000
     restart: on-failure
     depends_on:
       - database
 
   frontend:
     container_name: frontend
-    build: frontend/
+    environment:
+      - API_ENDPOINT=mylocal.com/api
     image: react-docker
+
+  haproxy:
+    container_name: haproxy
+    image: my_haproxy
+    depends_on:
+      - backend
+      - frontend
     ports:
-      - 3000:80
+      - 80:80
+      - 443:443

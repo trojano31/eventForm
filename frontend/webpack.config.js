@@ -54,6 +54,11 @@ module.exports = {
       template: SRC_DIR + '/index.html',
       filename: './index.html',
     }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        API_ENDPOINT: JSON.stringify(process.env.API_ENDPOINT)
+      }
+    })
   ],
   devServer: {
     contentBase: DIST_DIR,
